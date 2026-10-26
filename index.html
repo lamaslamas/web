@@ -65,9 +65,9 @@
       position: absolute; inset: 0 0 auto; z-index: 2;
       padding-block: 1.25rem;
     }
-    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 600; color: #152036; }
-    .brand svg { width: 2.25rem; height: 2.25rem; fill: none; stroke: currentColor; stroke-width: 40; stroke-linecap: round; }
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem 1rem; }
+    .brand { display: flex; align-items: center; gap: clamp(.6rem, 1.4vw, 1rem); text-decoration: none; font-weight: 700; font-stretch: 112%; font-size: clamp(2rem, 5vw, 4.2rem); line-height: 1; letter-spacing: -.01em; color: #152036; }
+    .brand svg { width: 1.2em; height: 1.2em; flex: none; fill: none; stroke: currentColor; stroke-width: 40; stroke-linecap: round; }
     .site-header nav { display: flex; gap: clamp(1rem, 3vw, 2rem); }
     .site-header nav a { text-decoration: none; color: #152036; font-weight: 500; }
     .site-header nav a:hover { color: #c8341f; }
@@ -79,7 +79,7 @@
       background: #e9eef0 url("img/hero.webp") center bottom / cover no-repeat;
       color: #152036;
       display: flex; align-items: flex-start;
-      padding-top: clamp(7rem, 18vh, 11rem);
+      padding-top: clamp(10rem, 24vh, 14rem);
     }
     .hero h1 {
       margin: 0;
