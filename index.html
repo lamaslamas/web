@@ -1,263 +1,459 @@
 <!DOCTYPE html>
-
-<html lang="en-us" class="no-js">
-
+<html lang="en">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-37001531-4"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrea Greco – Design, illustration, motion, photography</title>
+  <meta name="description" content="Andrea Greco is a multidisciplinary designer from Salento, Italy: illustration, graphic design, websites, animated videos and nature photography.">
+  <meta name="author" content="Andrea Greco">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Andrea Greco – Design, illustration, motion, photography">
+  <meta property="og:description" content="Illustration, graphic design, websites, animated videos and nature photography from Salento, Italy.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta name="theme-color" content="#eef1f2">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #eef1f2;
+      --ink: #152036;
+      --muted: #5b6577;
+      --line: #c9d0d6;
+      --accent: #c8341f;
+      --tile: #152036;
+      --tile-ink: #eef1f2;
+      --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+      --wrap: min(1240px, 100% - 2 * clamp(1.25rem, 4vw, 3rem));
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0f1828;
+        --ink: #e6eaee;
+        --muted: #9aa4b4;
+        --line: #2a3650;
+        --accent: #ef6a52;
+        --tile: #1d2a44;
+        --tile-ink: #e6eaee;
+        color-scheme: dark;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+    a:hover { color: var(--accent); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .wrap { width: var(--wrap); margin-inline: auto; }
+    .skip { position: absolute; left: -999px; }
+    .skip:focus { left: 1rem; top: 1rem; background: var(--paper); padding: .5rem 1rem; z-index: 10; }
 
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
+    /* Header */
+    .site-header {
+      position: absolute; inset: 0 0 auto; z-index: 2;
+      padding-block: 1.25rem;
+    }
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 600; color: #152036; }
+    .brand svg { width: 2.25rem; height: 2.25rem; fill: none; stroke: currentColor; stroke-width: 40; stroke-linecap: round; }
+    .site-header nav { display: flex; gap: clamp(1rem, 3vw, 2rem); }
+    .site-header nav a { text-decoration: none; color: #152036; font-weight: 500; }
+    .site-header nav a:hover { color: #c8341f; }
 
-		gtag('config', 'UA-37001531-4');
-	</script>
+    /* Hero: the Salento illustration is the stage */
+    .hero {
+      position: relative;
+      min-height: min(92vh, 900px);
+      background: #e9eef0 url("img/hero.webp") center bottom / cover no-repeat;
+      color: #152036;
+      display: flex; align-items: flex-start;
+      padding-top: clamp(7rem, 18vh, 11rem);
+    }
+    .hero h1 {
+      margin: 0;
+      max-width: 19ch;
+      font-stretch: 112%;
+      font-weight: 700;
+      font-size: clamp(1.9rem, 4.4vw, 3.8rem);
+      line-height: 1.04;
+      letter-spacing: -.01em;
+    }
+    .hero p {
+      margin: 1.5rem 0 0;
+      max-width: 34ch;
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      line-height: 1.4;
+      font-weight: 400;
+    }
+    .brand .mark path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.2s .2s cubic-bezier(.6,0,.2,1) forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .brand .mark path { animation: none; stroke-dashoffset: 0; } }
+    .hero .credit { position: absolute; right: 1rem; bottom: .75rem; font-size: .8rem; color: #152036; opacity: .75; }
 
-	<meta charset="utf-8">
-	<title>Andrea Greco - Web/Graphic Designer</title>
-    <link href="img/favicon.png" rel="shortcut icon" type="image/png">
-	
-	<meta name="description" content="Web/Graphic Designer">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
-	<script src="js/modernizr.js"></script>
+    /* Sections */
+    section { padding-block: clamp(4rem, 9vw, 7rem); }
+    h2 {
+      margin: 0 0 1.5rem;
+      font-stretch: 125%;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -.01em;
+    }
+    .lede { max-width: 60ch; color: var(--muted); margin: 0 0 2rem; }
+
+    /* Filters */
+    .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 2.5rem; padding: 0; list-style: none; }
+    .filters button {
+      font: inherit; font-size: .95rem;
+      padding: .45rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent; color: var(--ink);
+      cursor: pointer;
+    }
+    .filters button:hover { border-color: var(--ink); }
+    .filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    /* Work grid: natural proportions, like a pinned wall */
+    .grid { columns: 3 300px; column-gap: clamp(1rem, 2.5vw, 2rem); }
+    .work { break-inside: avoid; margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); }
+    .work[hidden] { display: none; }
+    .work > button, .work > .tile {
+      display: block; width: 100%; padding: 0; border: 0; background: none;
+      font: inherit; color: inherit; text-align: left; cursor: zoom-in;
+    }
+    .work > .tile { cursor: default; }
+    .work img { width: 100%; background: var(--line); }
+    .work > button:hover img { opacity: .92; }
+    .work figcaption { margin-top: .7rem; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+    .work .t { font-weight: 600; }
+    .work .d { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+
+    .motion-card {
+      aspect-ratio: 16 / 10;
+      background: var(--tile); color: var(--tile-ink);
+      padding: clamp(1.25rem, 3vw, 2rem);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .motion-card strong {
+      font-stretch: 125%; font-weight: 700;
+      font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.02;
+    }
+    .motion-card span { font-size: .95rem; opacity: .8; max-width: 32ch; }
+    .motion-card.print { background: transparent; color: var(--ink); border: 1px solid var(--ink); aspect-ratio: 4 / 5; }
+    .motion-card .open { font-size: .9rem; opacity: 1; text-decoration: underline; text-underline-offset: .2em; }
+    a.tile { text-decoration: none; cursor: pointer !important; }
+    a.tile:hover .motion-card { border-color: var(--accent); }
+    a.tile:hover .open { color: var(--accent); }
+
+    /* About */
+    .about { border-top: 1px solid var(--line); }
+    .about .cols { display: grid; gap: clamp(2rem, 6vw, 5rem); grid-template-columns: 1.3fr 1fr; }
+    @media (max-width: 800px) { .about .cols { grid-template-columns: 1fr; } }
+    .about p { max-width: 58ch; margin: 0 0 1.1rem; }
+    .skills { list-style: none; margin: 0; padding: 0; }
+    .skills li { padding: .9rem 0; border-bottom: 1px solid var(--line); display: grid; gap: .15rem; }
+    .skills li:first-child { border-top: 1px solid var(--line); }
+    .skills b { font-weight: 600; }
+    .skills span { color: var(--muted); font-size: .95rem; }
+
+    /* Contact */
+    .contact { background: var(--ink); color: var(--paper); }
+    .contact h2 { margin-bottom: 1rem; }
+    .contact .mail {
+      display: inline-block;
+      font-stretch: 112%; font-weight: 600;
+      font-size: clamp(1.3rem, 4.2vw, 3rem);
+      line-height: 1.15;
+      word-break: break-word;
+      margin: .5rem 0 2.5rem;
+    }
+    .contact a:hover { color: var(--accent); }
+    .links { list-style: none; display: flex; flex-wrap: wrap; gap: .75rem 2rem; padding: 0; margin: 0; }
+    .contact p { color: color-mix(in srgb, var(--paper) 70%, transparent); margin: 0 0 .5rem; }
+
+    footer { padding-block: 2rem; color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+    /* Lightbox */
+    dialog {
+      border: 0; padding: 0; max-width: min(1200px, 94vw); max-height: 94vh;
+      background: var(--paper); color: var(--ink);
+    }
+    dialog::backdrop { background: rgb(15 24 40 / .86); }
+    dialog img { max-height: 76vh; width: auto; margin-inline: auto; }
+    dialog .info { padding: 1rem 1.25rem 1.25rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline; }
+    dialog h3 { margin: 0; font-size: 1.15rem; }
+    dialog p { margin: .25rem 0 0; color: var(--muted); max-width: 60ch; }
+    dialog .close {
+      position: absolute; top: .5rem; right: .5rem;
+      width: 2.5rem; height: 2.5rem; border-radius: 50%;
+      border: 0; background: var(--paper); color: var(--ink); font-size: 1.4rem; cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
-	<div id="wrapper">
-		<div class="lines-overlay"></div>
-		<div id="main">
-			<ul class="social-icons">
-				<li>
-					<a href="https://behance.com/lamaslamas">
-						<i class="fa fa-behance"></i>
-					</a>
-				</li>
-				<li>
-					<a href="https://www.linkedin.com/in/andreagreco808/">
-						<i class="fa fa-linkedin"></i>
-					</a>
-				</li>
+  <a class="skip" href="#work">Skip to work</a>
 
-				<li>
-					<a href="https://instagram.com/lamaslamas">
-						<i class="fa fa-instagram"></i>
-					</a>
-				</li>
-			</ul>
-			<header id="header">
-				<img src="logo.png" alt="" class="logo" />
-				<h1>I'm Andrea Greco</h1>
-				<p id="text-alert" class="animated-quick"></p>
-				<nav>
-					<ul>
-						<li>
-							<a href="#" class="messages icon-popup icon ion-messages"></a>
-							<p class="name">Messages</p>
-						</li>
-						<li>
-							<a href="#" class="about icon-popup icon ion-person-stalker"></a>
-							<p class="name">About</p>
-						</li>
-						<li>
-							<a href="#" class="photos icon-popup icon ion-images"></a>
-							<p class="name">Works</p>
-						</li>
-						<li>
-							<a href="tel:+393883678137" class="phone icon ion-ios-telephone"></a>
-							<p class="name">Call</p>
-						</li>
-					</ul>
-				</nav>
-			</header>
-		</div>
-	</div>
-	<div class="global-content">
-		<div class="slider-nav">
-			<a href="#" class="prev-button">
-				<i class="fa fa-long-arrow-left"></i>
-			</a>
-			<a href="#" class="close-content">
-				<i class="icon ion-close-round"></i>
-			</a>
-			<a href="#" class="next-button">
-				<i class="fa fa-long-arrow-right"></i>
-			</a>
-		</div>
-		<section class="content-message slide first">
-			<div class="content-in ">
-				<div class="content-table">
-					<div class="content-cell">
-						<div class="content-inner">
-							<div class="container">
-								<h1>My name is Andrea Greco</h1>
-								<span class="border"></span>
-								<p>I’m a freelance front-end web developer. If you’d like to discuss a project or contract opportunities, please feel
-									free to contact me.</p>
-								<div id="contact_dashboard">
-									<div class="dash-glob">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Andrea Greco, home">
+        <svg class="mark" viewBox="0 0 834 834" aria-hidden="true">
+          <path pathLength="1" d="M352 148 L12 742 H697 L673.5 701.6"/>
+          <path pathLength="1" d="M352 148 L524.5 445"/>
+          <path pathLength="1" d="M420 445 H821 A297 297 0 1 1 261.2 306.6"/>
+          <path pathLength="1" d="M375.2 188 A297 297 0 0 1 737 236"/>
+        </svg>
+        Andrea Greco
+      </a>
+      <nav aria-label="Main">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-									</div>
-								</div>
+  <main id="top">
+    <div class="hero">
+      <div class="wrap">
+        <h1>Illustration, graphic design, websites, animated videos and nature photography.</h1>
+        <p>Based in Salento, working for projects across Europe.</p>
+      </div>
+      <span class="credit">Illustration: Power lines, Andrea Greco</span>
+    </div>
 
+    <section id="work">
+      <div class="wrap">
+        <h2>Work</h2>
+        <p class="lede">A selection of projects for European institutions, research projects, cultural organisations, small businesses and my own illustration practice.</p>
 
+        <ul class="filters" aria-label="Filter work by discipline">
+          <li><button type="button" data-filter="all" aria-pressed="true">All</button></li>
+          <li><button type="button" data-filter="motion" aria-pressed="false">Motion</button></li>
+          <li><button type="button" data-filter="illustration" aria-pressed="false">Illustration</button></li>
+          <li><button type="button" data-filter="graphic" aria-pressed="false">Graphic design</button></li>
+          <li><button type="button" data-filter="web" aria-pressed="false">Web</button></li>
+          <li><button type="button" data-filter="photo" aria-pressed="false">Photography</button></li>
+        </ul>
 
-								<div class="row contact-info">
-									<div class="col-xs-12 col-sm-4 col-lg-4 contact-method">
-										<i class="icon ion-ios-location-outline"></i>
-										<p>
-											<a href="www.google.fr/maps/place/Wall%2bSt%2c%2bNew%2bYork%2c%2bNY%2c%2b%c3%89tats-Unis/%4040.7060081%2c-74.0088151%2c17z/data%3d%213m1%214b1%214m2%213m1%211s0x89c25a165bedccab_0x2cb2ddf003b5ae01253c.html"
-											    target="_blank"> Copertino
-												<br>Lecce, Italy</a>
-										</p>
-									</div>
-									<div class="col-xs-12 col-sm-4 col-lg-4 contact-method">
-										<i class="icon ion-ios-telephone-outline"></i>
-										<i class="icon ion-social-skype"></i>
-										<p>
-											<a href="tel:+393883678137">(+39) 3883678137</a>
-											<br>
-											<a href="skype:profile_name?userinfo">Link to my Skype</a>
-										</p>
-									</div>
-									<div class="col-xs-12 col-sm-4 col-lg-4 contact-method">
-										<i class="icon ion-ios-email-outline"> </i>
-										<i class="ion-social-whatsapp-outline"></i>
-										<p>
-											<a href="mailto:andreagreco808@gmail.com">andreagreco808@gmail.com</a>
-											<br>
-											<a href="https://api.whatsapp.com/send?phone=393883678137">Whatsapp me</a>
-										</p>
-									</div>
-								</div>
+        <div class="grid">
+          <!-- MOTION – to add a video: put a poster image in img/work/ and turn the .tile into a <button> like the others, with data-video="https://..." -->
+          <figure class="work" data-cat="motion">
+            <div class="tile">
+              <div class="motion-card">
+                <strong>EUDAT 10&nbsp;Years</strong>
+                <span>Opening video for the EUDAT Conference 2026 in Prague</span>
+              </div>
+            </div>
+            <figcaption><span class="t">EUDAT 10 Years</span><span class="d">Motion</span></figcaption>
+          </figure>
 
+          <figure class="work" data-cat="graphic">
+            <a class="tile" href="https://smart-networks.europa.eu/wp-content/uploads/2026/06/snsju_aar25.pdf" target="_blank" rel="noopener">
+              <div class="motion-card print">
+                <strong>SNS JU Annual Activity Report 2025</strong>
+                <span>Layout, infographics and design of the annual report of the Smart Networks and Services Joint Undertaking</span>
+                <span class="open">Read the report (PDF)</span>
+              </div>
+            </a>
+            <figcaption><span class="t">SNS JU Annual Report 2025</span><span class="d">Graphic design</span></figcaption>
+          </figure>
 
+          <figure class="work" data-cat="graphic">
+            <a class="tile" href="https://smart-networks.europa.eu/wp-content/uploads/2025/06/sns-caar-2024-apr25_v8.2_web_hq.pdf" target="_blank" rel="noopener">
+              <div class="motion-card print">
+                <strong>SNS JU Annual Activity Report 2024</strong>
+                <span>Layout, infographics and design of the consolidated annual report</span>
+                <span class="open">Read the report (PDF)</span>
+              </div>
+            </a>
+            <figcaption><span class="t">SNS JU Annual Report 2024</span><span class="d">Graphic design</span></figcaption>
+          </figure>
 
+          <figure class="work" data-cat="illustration motion">
+            <button type="button" data-full="img/work/lecce-tower.webp" data-title="Lecce Cathedral bell tower" data-text="Animated vector illustration.">
+              <img src="img/work/lecce-tower.webp" alt="Animated vector illustration of the Lecce Cathedral bell tower framed by an arch, in reds and pale blue" width="400" height="504" loading="lazy">
+            </button>
+            <figcaption><span class="t">Lecce bell tower</span><span class="d">Illustration, motion</span></figcaption>
+          </figure>
 
-								<div class="block-message">
-									<div class="message">
-										<p class="notify-valid"></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+          <figure class="work" data-cat="web">
+            <button type="button" data-full="img/work/salentours.webp" data-title="Salentours" data-text="Website design and front-end for a Salento tour operator." data-link="https://lamaslamas.github.io/salentours/">
+              <img src="img/work/salentours.webp" alt="Salentours website home page with a green-tinted lighthouse photo" width="1800" height="982" loading="lazy">
+            </button>
+            <figcaption><span class="t">Salentours</span><span class="d">Web</span></figcaption>
+          </figure>
 
-		<section class="content-about slide">
-			<div class="content-in ">
-				<div class="content-table">
-					<div class="content-cell">
-						<div class="content-inner">
-							<div class="container">
-								<img src="logo.png" alt="" class="logo" />
-								<h1>About me</h1>
-								<span class="border"></span>
-								<p>Obsessively thorough graphic design and web development, with HTML5, CSS3, jQuery and WordPress.</p>
-								<p>I've been developing my skill–set to focus on what’s most suited to getting the job done quickly and effectively.</p>
+          <figure class="work" data-cat="motion">
+            <div class="tile">
+              <div class="motion-card">
+                <strong>Top-10 SNS JU Key Achievements 2026</strong>
+                <span>Animated sequences for the Smart Networks and Services Joint Undertaking, presented at Techritory</span>
+              </div>
+            </div>
+            <figcaption><span class="t">SNS JU Top-10</span><span class="d">Motion</span></figcaption>
+          </figure>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- 
-		////////////////////// 
-		//WORKS 
-	-->
-		<section class="content-photos slide last">
-			<div class="content-in ">
-				<div class="content-table">
-					<div class="content-cell">
-						<div class="content-inner">
-							<div class="container">
-								<h1>Works</h1>
-								<span class="border"></span>
-								<p>I’ve had the pleasure of working with some of the most active and brilliant Italian and European associations and
-									artists.</p>
-								<div class="photo-collection row">
-										<div class="col-xs-12 col-sm-4 col-lg-4 photo-item">
-												<a href="img/pict7.png" title="https://lamaslamas.github.io/salentours/" class="swipebox">
-													<figure>
-														<img src="img/pict7-thumb.png" alt="" class="img-responsive" /> </figure>
-													<span class="text-open"></span>
-												</a>
-											</div>
-										<div class="col-xs-12 col-sm-4 col-lg-4 photo-item">
-												<a href="img/pict8.png" title="https://lamaslamas.github.io/grillo/" class="swipebox">
-													<figure>
-														<img src="img/pict8-thumb.png" alt="" class="img-responsive" /> </figure>
-													<span class="text-open"></span>
-												</a>
-											</div>
-									<div class="col-xs-12 col-sm-4 col-lg-4 photo-item">
-										<a href="img/pict1.jpg" title="EUROPOL SOCTA" class="swipebox">
-											<figure>
-												<img src="img/pict1-thumb.jpg" alt="" class="img-responsive" /> </figure>
-											<span class="text-open"></span>
-										</a>
-									</div>
-									<div class="col-xs-12 col-sm-4 col-lg-4 photo-item">
-										<a href="/img/pict2.jpg" title="Graphics" class="swipebox">
-											<figure>
-												<img src="img/pict2-thumb.jpg" alt="" class="img-responsive" /> </figure>
-											<span class="text-open"></span>
-										</a>
-									</div>
-									<div class="col-xs-12 col-sm-4 col-lg-4 photo-item">
-										<a href="img/pict3.jpg" title="Illustration" class="swipebox">
-											<figure>
-												<img src="img/pict3-thumb.jpg" alt="" class="img-responsive" /> </figure>
-											<span class="text-open"></span>
-										</a>
-									</div>
-									<div class="col-xs-12 col-sm-4 col-lg-4 photo-item 4">
-										<a href="img/pict4.png" title="http://fondazioneterradotranto.it" class="swipebox">
-											<figure>
-												<img src="img/pict4-thumb.png" alt="" class="img-responsive" /> </figure>
-											<span class="text-open"></span>
-										</a>
-									</div>
-									<div class="col-xs-12 col-sm-4 col-lg-4 photo-item 5">
-										<a href="img/pict5.png" title="http://giulianos.nl" class="swipebox">
-											<figure>
-												<img src="img/pict5-thumb.png" alt="" class="img-responsive" /> </figure>
-											<span class="text-open"></span>
-										</a>
-									</div>
-									<div class="col-xs-12 col-sm-4 col-lg-4 photo-item 6">
-										<a href="img/pict6.gif" title="Animation" class="swipebox">
-											<figure>
-												<img src="img/pict6-thumb.gif" alt="" class="img-responsive" /> </figure>
-											<span class="text-open"></span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-	<footer id="footer">
-		<span class="copyright">&copy; Andrea Greco</span>
-	</footer>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.swipebox.js"></script>
+          <figure class="work" data-cat="graphic">
+            <button type="button" data-full="img/work/europol-socta.webp" data-title="Europol SOCTA" data-text="Folded brochure with infographics for Europol’s Serious and Organised Crime Threat Assessment.">
+              <img src="img/work/europol-socta.webp" alt="Dark blue folded brochure with infographics for Europol SOCTA" width="600" height="600" loading="lazy">
+            </button>
+            <figcaption><span class="t">Europol SOCTA</span><span class="d">Graphic design</span></figcaption>
+          </figure>
 
+          <figure class="work" data-cat="illustration">
+            <button type="button" data-full="img/work/seaside.webp" data-title="Seaside" data-text="Vector poster: waves, dunes and a summer sky.">
+              <img src="img/work/seaside.webp" alt="Framed vector poster of waves breaking on orange dunes under a cloudy sky" width="900" height="806" loading="lazy">
+            </button>
+            <figcaption><span class="t">Seaside</span><span class="d">Illustration</span></figcaption>
+          </figure>
 
-	<script src="js/main.js"></script>
+          <figure class="work" data-cat="web">
+            <button type="button" data-full="img/work/terra-dotranto.webp" data-title="Fondazione Terra d’Otranto" data-text="Website for a cultural foundation in Salento." data-link="http://fondazioneterradotranto.it">
+              <img src="img/work/terra-dotranto.webp" alt="Fondazione Terra d’Otranto website header with a photo of the Salento coast" width="900" height="381" loading="lazy">
+            </button>
+            <figcaption><span class="t">Fondazione Terra d’Otranto</span><span class="d">Web</span></figcaption>
+          </figure>
 
+          <figure class="work" data-cat="motion">
+            <div class="tile">
+              <div class="motion-card">
+                <strong>DEDEP</strong>
+                <span>Animated explainer for the DEDEP European project</span>
+              </div>
+            </div>
+            <figcaption><span class="t">DEDEP</span><span class="d">Motion</span></figcaption>
+          </figure>
+
+          <figure class="work" data-cat="web">
+            <button type="button" data-full="img/work/giulianos.webp" data-title="Giuliano’s" data-text="Website for an Italian restaurant in the Netherlands." data-link="http://giulianos.nl">
+              <img src="img/work/giulianos.webp" alt="Giuliano’s restaurant website header with a photo of the dining room" width="900" height="351" loading="lazy">
+            </button>
+            <figcaption><span class="t">Giuliano’s</span><span class="d">Web</span></figcaption>
+          </figure>
+
+          <figure class="work" data-cat="illustration">
+            <button type="button" data-full="img/work/piazza.webp" data-title="Piazza" data-text="Framed vector print of a town square at dusk.">
+              <img src="img/work/piazza.webp" alt="Framed vector print of an obelisk and low buildings under a violet sky" width="649" height="649" loading="lazy">
+            </button>
+            <figcaption><span class="t">Piazza</span><span class="d">Illustration</span></figcaption>
+          </figure>
+
+          <figure class="work" data-cat="web">
+            <button type="button" data-full="img/work/grillo.webp" data-title="Grillo" data-text="Booking dashboard for hotels, flights, car rental and tours." data-link="https://lamaslamas.github.io/grillo/">
+              <img src="img/work/grillo.webp" alt="Travel booking dashboard with a hotel page and side menu" width="1800" height="972" loading="lazy">
+            </button>
+            <figcaption><span class="t">Grillo</span><span class="d">Web, UI</span></figcaption>
+          </figure>
+
+          <!-- PHOTOGRAPHY – add photos like this:
+          <figure class="work" data-cat="photo">
+            <button type="button" data-full="img/photo/01.webp" data-title="Title" data-text="Place, year.">
+              <img src="img/photo/01.webp" alt="Describe the photo" width="1800" height="1200" loading="lazy">
+            </button>
+            <figcaption><span class="t">Title</span><span class="d">Photography</span></figcaption>
+          </figure>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="wrap cols">
+        <div>
+          <h2>About</h2>
+          <p>I’m a designer from Salento, in the south of Italy. I started with graphic design and front-end development, and over time my work has spread to illustration, motion and photography.</p>
+          <p>At Trust-IT Services I create visual communication for European research and technology projects: animated videos, event openings, reports and infographics.</p>
+          <p>Away from the desk I photograph wildlife and landscapes, and I build small web tools for the things I care about.</p>
+        </div>
+        <ul class="skills">
+          <li><b>Motion</b><span>Animated explainers, event openings, social videos</span></li>
+          <li><b>Illustration</b><span>Vector illustration, posters, animated illustration</span></li>
+          <li><b>Graphic design</b><span>Brochures, reports, infographics, visual identity</span></li>
+          <li><b>Web</b><span>Website design and front-end development</span></li>
+          <li><b>Photography and video</b><span>Wildlife and landscape photography, video interviews</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p>For projects, collaborations or just to say hello.</p>
+        <a class="mail" href="mailto:andreagreco808@gmail.com">andreagreco808@gmail.com</a>
+        <ul class="links">
+          <li><a href="https://www.linkedin.com/in/andreagreco808/">LinkedIn</a></li>
+          <li><a href="https://instagram.com/lamaslamas">Instagram</a></li>
+          <li><a href="https://wa.me/393883678137">WhatsApp</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Andrea Greco</span>
+      <span>Lecce, Italy</span>
+    </div>
+  </footer>
+
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <button class="close" type="button" aria-label="Close">×</button>
+    <img id="viewer-img" alt="">
+    <div class="info">
+      <div>
+        <h3 id="viewer-title"></h3>
+        <p id="viewer-text"></p>
+      </div>
+      <a id="viewer-link" href="#" target="_blank" rel="noopener">Visit site</a>
+    </div>
+  </dialog>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Filters
+    const buttons = document.querySelectorAll('.filters button');
+    const works = document.querySelectorAll('.work');
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      const f = btn.dataset.filter;
+      buttons.forEach(b => b.setAttribute('aria-pressed', b === btn));
+      works.forEach(w => { w.hidden = f !== 'all' && !w.dataset.cat.split(' ').includes(f); });
+    }));
+    // Hide filters that have no work yet
+    buttons.forEach(btn => {
+      const f = btn.dataset.filter;
+      if (f !== 'all' && ![...works].some(w => w.dataset.cat.split(' ').includes(f))) btn.parentElement.remove();
+    });
+
+    // Viewer
+    const dlg = document.getElementById('viewer');
+    const vImg = document.getElementById('viewer-img');
+    const vLink = document.getElementById('viewer-link');
+    document.querySelectorAll('.work > button').forEach(b => b.addEventListener('click', () => {
+      vImg.src = b.dataset.full;
+      vImg.alt = b.querySelector('img').alt;
+      document.getElementById('viewer-title').textContent = b.dataset.title;
+      document.getElementById('viewer-text').textContent = b.dataset.text || '';
+      if (b.dataset.link) { vLink.href = b.dataset.link; vLink.hidden = false; } else { vLink.hidden = true; }
+      dlg.showModal();
+    }));
+    dlg.querySelector('.close').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  </script>
 </body>
-
 </html>
