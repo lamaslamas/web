@@ -155,6 +155,8 @@
     .motion-card span { font-size: .95rem; opacity: .8; max-width: 32ch; }
     .motion-card.print { background: transparent; color: var(--ink); border: 1px solid var(--ink); aspect-ratio: 4 / 5; }
     .motion-card .open { font-size: .9rem; opacity: 1; text-decoration: underline; text-underline-offset: .2em; }
+    .work > button .motion-card { text-align: left; }
+    .work > button:hover .motion-card { outline: 1px solid var(--accent); }
     a.tile { text-decoration: none; cursor: pointer !important; }
     a.tile:hover .motion-card { border-color: var(--accent); }
     a.tile:hover .open { color: var(--accent); }
@@ -195,6 +197,8 @@
     }
     dialog::backdrop { background: rgb(15 24 40 / .86); }
     dialog img { max-height: 76vh; width: auto; margin-inline: auto; }
+    dialog .video { width: min(1100px, 94vw); aspect-ratio: 16 / 9; background: #000; }
+    dialog .video iframe, dialog .video video { width: 100%; height: 100%; border: 0; display: block; }
     dialog .info { padding: 1rem 1.25rem 1.25rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline; }
     dialog h3 { margin: 0; font-size: 1.15rem; }
     dialog p { margin: .25rem 0 0; color: var(--muted); max-width: 60ch; }
@@ -251,15 +255,38 @@
         </ul>
 
         <div class="grid">
-          <!-- MOTION – to add a video: put a poster image in img/work/ and turn the .tile into a <button> like the others, with data-video="https://..." -->
+          <!-- MOTION – to add a video: copy a button card below; data-kind is "youtube" (data-video = embed URL) or "mp4" (direct file URL) -->
           <figure class="work" data-cat="motion">
-            <div class="tile">
+            <button type="button" data-title="Carbon-Plankton Dynamics" data-text="Animated video for the European Digital Twin Ocean: unravelling carbon-plankton dynamics for ocean conservation." data-video="https://www.youtube.com/embed/XAl_1hxxAGk" data-kind="youtube">
               <div class="motion-card">
-                <strong>EUDAT 10&nbsp;Years</strong>
-                <span>Opening video for the EUDAT Conference 2026 in Prague</span>
+                <strong>Carbon-Plankton Dynamics</strong>
+                <span>Animated video for the European Digital Twin Ocean: unravelling carbon-plankton dynamics for ocean conservation.</span>
+                <span class="open">Play video</span>
               </div>
-            </div>
-            <figcaption><span class="t">EUDAT 10 Years</span><span class="d">Motion</span></figcaption>
+            </button>
+            <figcaption><span class="t">Carbon-Plankton Dynamics</span><span class="d">Motion</span></figcaption>
+          </figure>
+
+          <figure class="work" data-cat="motion">
+            <button type="button" data-title="LUMEN Project" data-text="Project video for LUMEN." data-video="https://lumenproject.eu/wp-content/uploads/2026/02/LUMENPROJECT-Video-Dec25.v2.1.mp4" data-kind="mp4">
+              <div class="motion-card">
+                <strong>LUMEN Project</strong>
+                <span>Project video for LUMEN.</span>
+                <span class="open">Play video</span>
+              </div>
+            </button>
+            <figcaption><span class="t">LUMEN Project</span><span class="d">Motion</span></figcaption>
+          </figure>
+
+          <figure class="work" data-cat="motion">
+            <button type="button" data-title="SNS Tracker Suite" data-text="Video for the Smart Networks and Services Joint Undertaking." data-video="https://www.youtube.com/embed/9WDpS7FKJb8" data-kind="youtube">
+              <div class="motion-card">
+                <strong>SNS Tracker Suite</strong>
+                <span>Video for the Smart Networks and Services Joint Undertaking.</span>
+                <span class="open">Play video</span>
+              </div>
+            </button>
+            <figcaption><span class="t">SNS Tracker Suite</span><span class="d">Motion</span></figcaption>
           </figure>
 
           <figure class="work" data-cat="graphic">
@@ -298,16 +325,6 @@
             <figcaption><span class="t">Salentours</span><span class="d">Web</span></figcaption>
           </figure>
 
-          <figure class="work" data-cat="motion">
-            <div class="tile">
-              <div class="motion-card">
-                <strong>Top-10 SNS JU Key Achievements 2026</strong>
-                <span>Animated sequences for the Smart Networks and Services Joint Undertaking, presented at Techritory</span>
-              </div>
-            </div>
-            <figcaption><span class="t">SNS JU Top-10</span><span class="d">Motion</span></figcaption>
-          </figure>
-
           <figure class="work" data-cat="graphic">
             <button type="button" data-full="img/work/europol-socta.webp" data-title="Europol SOCTA" data-text="Folded brochure with infographics for Europol’s Serious and Organised Crime Threat Assessment.">
               <img src="img/work/europol-socta.webp" alt="Dark blue folded brochure with infographics for Europol SOCTA" width="600" height="600" loading="lazy">
@@ -327,16 +344,6 @@
               <img src="img/work/terra-dotranto.webp" alt="Fondazione Terra d’Otranto website header with a photo of the Salento coast" width="900" height="381" loading="lazy">
             </button>
             <figcaption><span class="t">Fondazione Terra d’Otranto</span><span class="d">Web</span></figcaption>
-          </figure>
-
-          <figure class="work" data-cat="motion">
-            <div class="tile">
-              <div class="motion-card">
-                <strong>DEDEP</strong>
-                <span>Animated explainer for the DEDEP European project</span>
-              </div>
-            </div>
-            <figcaption><span class="t">DEDEP</span><span class="d">Motion</span></figcaption>
           </figure>
 
           <figure class="work" data-cat="web">
@@ -414,6 +421,7 @@
   <dialog id="viewer" aria-labelledby="viewer-title">
     <button class="close" type="button" aria-label="Close">×</button>
     <img id="viewer-img" alt="">
+    <div id="viewer-video" class="video" hidden></div>
     <div class="info">
       <div>
         <h3 id="viewer-title"></h3>
@@ -444,14 +452,31 @@
     const dlg = document.getElementById('viewer');
     const vImg = document.getElementById('viewer-img');
     const vLink = document.getElementById('viewer-link');
+    const vVideo = document.getElementById('viewer-video');
     document.querySelectorAll('.work > button').forEach(b => b.addEventListener('click', () => {
-      vImg.src = b.dataset.full;
-      vImg.alt = b.querySelector('img').alt;
+      const isVideo = !!b.dataset.video;
+      vImg.hidden = isVideo; vVideo.hidden = !isVideo;
+      if (isVideo) {
+        if (b.dataset.kind === 'mp4') {
+          const v = document.createElement('video');
+          v.src = b.dataset.video; v.controls = true; v.autoplay = true; v.playsInline = true;
+          vVideo.replaceChildren(v);
+        } else {
+          const f = document.createElement('iframe');
+          f.src = b.dataset.video + '?autoplay=1&rel=0'; f.title = b.dataset.title; f.allowFullscreen = true;
+          f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          vVideo.replaceChildren(f);
+        }
+      } else {
+        vImg.src = b.dataset.full;
+        vImg.alt = b.querySelector('img').alt;
+      }
       document.getElementById('viewer-title').textContent = b.dataset.title;
       document.getElementById('viewer-text').textContent = b.dataset.text || '';
       if (b.dataset.link) { vLink.href = b.dataset.link; vLink.hidden = false; } else { vLink.hidden = true; }
       dlg.showModal();
     }));
+    dlg.addEventListener('close', () => vVideo.replaceChildren());
     dlg.querySelector('.close').addEventListener('click', () => dlg.close());
     dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
   </script>
